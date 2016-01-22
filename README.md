@@ -2,10 +2,12 @@
 
 This project is indented as an example how to combine a
 **[Sinatra](http://sinatrarb.com)** app serving a **JSON API** with both
-**[Docker](http://docker.com)** and **ActiveRecord**. It has been developed as
-part of a blog series on this topic. You can read the articles here:
+**[Docker](http://docker.com)** and
+**[ActiveRecord](http://guides.rubyonrails.org/active_record_basics.html)**. It
+has been developed as part of a blog series on this topic. You can read the
+articles here:
 
-- [Part 1: Dockerizing Sinatra](http://coding.jandavid.de)
+- [Part 1: Dockerizing Sinatra](http://coding.jandavid.de/2016/01/22/dockerizing-sinatra/)
 
 ## Sinatra
 
