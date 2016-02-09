@@ -8,6 +8,8 @@ has been developed as part of a blog series on this topic. You can read the
 articles here:
 
 - [Part 1: Dockerizing Sinatra](http://coding.jandavid.de/2016/01/22/dockerizing-sinatra/)
+- [Part 2: Making Docker an art with Compose](http://coding.jandavid.de/2016/01/29/making-docker-an-art-with-compose/)
+- [Part 3: How to set up Sinatra with ActiveRecord](http://coding.jandavid.de/2016/02/08/how-to-set-up-sinatra-with-activerecord/)
 
 ## Sinatra
 
@@ -27,13 +29,28 @@ base, and adds instructions to install the app and configure the bundled
 Before you can run the app, you have to build the **Docker** image:
 
 ```
-docker build -t <yourname>/sinatra-api
+app$ docker build -t <yourname>/sinatra-api
 ```
 
 If the build is successful, you can start the container:
 
 ```
-docker run -p 4567:80 <yourname>/sinatra-api
+app$ docker run -p 4567:80 <yourname>/sinatra-api
+```
+
+### docker-compose
+
+You can also use **docker-compose** to start the application. The nice thing is
+that it automatically brings up a database for the application to use.
+
+```
+$ docker-compose up
+```
+
+You can connect to the database using **psql**:
+
+```
+psql -U sinatra sinatra
 ```
 
 # License
