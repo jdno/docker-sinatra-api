@@ -8,6 +8,9 @@ has been developed as part of a blog series on this topic. You can read the
 articles here:
 
 - [Part 1: Dockerizing Sinatra](http://coding.jandavid.de/2016/01/22/dockerizing-sinatra/)
+- [Part 2: Making Docker an art with Compose](http://coding.jandavid.de/2016/01/29/making-docker-an-art-with-compose/)
+- [Part 3: How to set up Sinatra with ActiveRecord](http://coding.jandavid.de/2016/02/08/how-to-set-up-sinatra-with-activerecord/)
+- [Part 4: Dockerized databases with Sinatra](http://coding.jandavid.de/2016/02/12/dockerized-databases-with-sinatra)
 
 ## Sinatra
 
@@ -17,23 +20,28 @@ itself in `app.rb`.
 
 ## Docker
 
-The **Docker** image uses the image
-[phusion/passenger-ruby22](https://github.com/phusion/passenger-docker) as its
-base, and adds instructions to install the app and configure the bundled
-**nginx** server (see `docker/vhost.conf`).
+The application extends [phusion's](http://www.phusion.nl) **Docker** image
+[phusion/passenger-ruby22](https://github.com/phusion/passenger-docker), and
+adds instructions to install the app and configure the bundled **nginx** server
+(see `docker/vhost.conf`).
 
-# How to run the app
+It also uses a database that is provided by the
+[official PostgreSQL image](https://hub.docker.com/_/postgres/). Using
+**docker-compose**, both containers can be started simultaneously.
 
-Before you can run the app, you have to build the **Docker** image:
+## Usage
+
+You can use **docker-compose** to start the application. The following command
+starts all containers:
 
 ```
-docker build -t <yourname>/sinatra-api
+$ docker-compose up
 ```
 
-If the build is successful, you can start the container:
+If you want to inspect the database, you can connect to it using **psql**:
 
 ```
-docker run -p 4567:80 <yourname>/sinatra-api
+psql -U sinatra sinatra
 ```
 
 # License
