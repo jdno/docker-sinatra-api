@@ -2,3 +2,10 @@ api:
   build: .
   ports:
     - "4567:80"
+db:
+  image: "postgres"
+  environment:
+    - POSTGRES_USER=sinatra
+    - POSTGRES_PASSWORD=sinatra
+  ports:
+    - "5432:5432"
