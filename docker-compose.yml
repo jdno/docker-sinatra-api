@@ -2,6 +2,13 @@ api:
   build: .
   ports:
     - "4567:80"
+  links:
+    - "db"
+  environment:
+    - DATABASE_HOST=db
+    - DATABASE_NAME=sinatra
+    - DATABASE_USER=sinatra
+    - DATABASE_PASSWORD=sinatra
 db:
   image: "postgres"
   environment:
